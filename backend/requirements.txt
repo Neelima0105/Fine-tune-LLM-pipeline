@@ -1,0 +1,6 @@
+transformers
+peft
+trl
+datasets
+fastapi
+mlflow

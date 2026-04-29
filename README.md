@@ -1,0 +1,2 @@
+This project fine-tunes a small open-source LLM using LoRA to create a domain-specific customer support assistant. The system includes dataset preparation, supervised fine-tuning, model inference, FastAPI deployment, and a React-based user interface.
+builded a training pipeline with MLflow with tracking information 

@@ -1,0 +1,76 @@
+Transformers import - Huggingface Transformers Library
+
+Autotokenizer: Converts the human text to numbers(tokens) model understands
+converts output tokens to readable text
+
+AutoModelForCasualLM: Loads pre trained language models for text generation
+casualLM: Predict the next work based on context
+
+TRL: Transformer Reinforcement Learning
+SFTTrainer: Supervided fine tuning trainer
+Handles the fine tune LLM traning loop
+No need of manual PyTorch training code
+without this, we have to write forward pass, compute loss, backpropogation, Optimier steps
+
+SFTConfig: Stores training settings(Hyperparamters)
+Controls:
+
+Training speed
+Model quality
+Memory usage
+
+LoraConfig:
+Define how LoRa finetuning to the model
+instead of training full model, trains only small adapter layers
+
+
+Tokenizer
+→ converts text → tokens
+Model
+→ generates output
+LoRAConfig
+→ tells how to fine-tune efficiently
+SFTConfig - how the data set is tranined
+SFTTrainer
+→ trains the model on your dataset
+
+Lora Config Parameters:
+   r=8. Rank: Controls the size of the LoRA adapter matrices
+Basically: how much the model is allowed to “learn new patterns”
+In general 8 is the good rank for the model
+
+lora_alpha: Scaling Factor
+How Strongly Lora updates effect the model
+Relation ship with R: Effective strength= lora_Aplha/r
+if the values higher value: Stornger inluence on finetuning
+Too High value: Unstable Training (Overfitting)
+Too Low Value: Model doesn't learn Much (underfitting)
+
+lora_dropout=0.05
+Randomly drops some Lora connections during training
+It prevents overfittimg
+Makes Model generalize better
+
+target_models="all-linear"
+tell lora which layers to modify
+LLMs have may layers: Attention, feedforward, backpropogation etc
+"all-linear" → apply LoRA to all linear layers
+More coverage → better learning
+Slightly more compute
+"q_proj", "v_proj" → only attention layers
+More efficient but less expressive
+
+task_type = "CAUSAL_LM"
+Defines the type of model task
+"CAUSAL_LM" means:
+Predict next word based on previous words
+Used for:
+Chatbots, text generation, Q&A system
+
+Different tasks require different training logic:
+
+"CAUSAL_LM" → GPT-style models
+"SEQ_2_SEQ_LM" → T5/BART (input → output transformation)
+
+Hugging Transformer Pipeline API: to run the LLM in easiest possibile way
+Ready made wrapper consistf of model, tokenizer, data processing(preprocessing or post processing)

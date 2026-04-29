@@ -1,0 +1,6 @@
+{"instruction": "Customer says their order is late",
+  "response": "I’m sorry your order is delayed. Please check the tracking link first. If there is no update for 48 hours, contact support with your order ID."}
+{"instruction": "Customer wants to return a product",
+  "response": "You can request a return within 30 days of delivery if the item is unused and in original packaging."}
+{"instruction": "Customer asks about refund time",
+  "response": "Refunds usually take 5–7 business days after the returned item is received and inspected."}
