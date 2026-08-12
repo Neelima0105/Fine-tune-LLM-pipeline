@@ -4,11 +4,11 @@ An end-to-end pipeline for fine-tuning TinyLlama-1.1B-Chat with LoRA to build a 
 
 ## Features
 
-• Parameter-efficient fine-tuning (LoRA via PEFT) on TinyLlama-1.1B-Chat
-• Supervised fine-tuning using Hugging Face TRL's SFTTrainer
-• Custom instruction/response dataset (JSONL)
-• Experiment tracking with MLflow (params, metrics, LoRA adapter artifacts)
-• FastAPI backend for serving the fine-tuned model
+• Parameter-efficient fine-tuning (LoRA via PEFT) on TinyLlama-1.1B-Chat  
+• Supervised fine-tuning using Hugging Face TRL's SFTTrainer  
+• Custom instruction/response dataset (JSONL)  
+• Experiment tracking with MLflow (params, metrics, LoRA adapter artifacts)  
+• FastAPI backend for serving the fine-tuned model  
 • React chat frontend
 
 ## Tech Stack
